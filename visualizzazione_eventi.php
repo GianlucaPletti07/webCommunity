@@ -5,7 +5,7 @@ $messaggio = "";
 $result = null;
 
 
-$sql = "SELECT titolo AS Titolo, luogo AS Luogo, data AS Data, codCategoria AS Categoria, nickname as Nickname
+$sql = "SELECT idEvento, titolo AS Titolo, luogo AS Luogo, data AS Data, codCategoria AS Categoria, nickname as Nickname
         FROM evento WHERE 1=1";
 
 $parametri = [];
@@ -60,13 +60,18 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if ($result) {
     echo "<table><tr>";
-    foreach (array_keys($result[0]) as $col) echo "<th>$col</th>";
+    echo "<th>Titolo</th>";
+    echo "<th>Luogo</th>";
+    echo "<th>Data</th>";
+    echo "<th>Categoria</th>";
+    echo "<th>Nickname</th>";
+    echo "<th>Commenti</th>";
     echo "</tr>";
 
     foreach ($result as $row) {
         echo "<tr>";
-        echo "<td>".$row['Titolo']."</td>";
-        echo "<td>".$row['Luogo']."</td>";
+        echo "<td>" . $row['Titolo'] . "</td>";
+        echo "<td>" . $row['Luogo'] . "</td>";
         $data = new DateTime($row['Data']);
         $dataItaliana = $data->format('d-m-Y');
         echo "<td>$dataItaliana</td>";
@@ -75,8 +80,14 @@ if ($result) {
         $stmtCat->bindParam(":codiceCategoria", $row['Categoria']);
         $stmtCat->execute();
         $resultCat = $stmtCat->fetchAll(PDO::FETCH_ASSOC);
-        echo"<td>".$resultCat[0]['descrizione']."</td>";
-        echo "<td>".$row['Nickname']."</td>";
+        echo "<td>" . $resultCat[0]['descrizione'] . "</td>";
+        echo "<td>" . $row['Nickname'] . "</td>";
+        echo "<td>
+        <a href='commenti.php?idEvento=" . $row['idEvento'] . "'>
+            <button>Visualizza</button>
+        </a>
+      </td>";
+
         echo "</tr>";
     }
     echo "</table>";
