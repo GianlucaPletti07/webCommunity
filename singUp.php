@@ -61,8 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["utente"]["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     // (opzionale) redirect
-    /*header("Location: conferma.php");
-    exit;*/
+    header("Location: visualizzazione_eventi.php");
+    exit;
 }
 
 
