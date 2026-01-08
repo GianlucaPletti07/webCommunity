@@ -27,6 +27,7 @@ $commenti = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Commenti evento</title>
+
     <style>
         body { font-family: Arial, sans-serif; }
         .commento {
@@ -39,7 +40,10 @@ $commenti = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<h2>Commenti dell'evento</h2>
+<div style="display: flex; gap: 2rem">
+    <h2>Commenti dell'evento</h2>
+    <button><a href="aggiungiCommento.php">Aggiungi</a></button>
+</div>
 
 <?php if (count($commenti) === 0): ?>
     <p>Nessun commento per questo evento.</p>
