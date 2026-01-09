@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["utente"] = [
             "nome" => $nome,
             "cognome" => $cognome,
-            "username" => $username,
+            "nickname" => $username,
             "email" => $email,
             "provincia" => $provincia,
             "categorie" => $categorie,

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["utente"] = [
                 "nome" => $result["nome"],
                 "cognome" => $result["cognome"],
-                "username" => $result["nickname"],
+                "nickname" => $result["nickname"],
                 "email" => $result["email"],
                 "provincia" => $result["provincia"],
                 "categorie" => []
