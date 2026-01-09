@@ -1,15 +1,13 @@
 <?php
 global $conn;
 include "utilities.php";
+session_start();
 if (!isset($_GET['idEvento'])) {
     die("Evento non specificato");
 }
 
 $idEvento = (int) $_GET['idEvento'];
 
-// ===============================
-// 3. QUERY COMMENTI (SENZA JOIN)
-// ===============================
 $sql = "
     SELECT nickname, commento, voto
     FROM post
@@ -40,10 +38,18 @@ $commenti = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<div style="display: flex; gap: 2rem">
-    <h2>Commenti dell'evento</h2>
-    <button><a href="aggiungiCommento.php">Aggiungi</a></button>
-</div>
+<?php
+if(isset($_SESSION['utente'])){
+    echo "<div style='display: flex; gap: 2rem'>
+            <h2>Commenti dell'evento</h2>
+            <button><a href='aggiungiCommento.php?idEvento=". $idEvento . "'>Aggiungi</a></button>
+        </div>";
+}
+else
+    echo "<h2>Commenti dell'evento</h2>"
+
+?>
+
 
 <?php if (count($commenti) === 0): ?>
     <p>Nessun commento per questo evento.</p>
