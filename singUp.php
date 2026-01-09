@@ -54,11 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "email" => $email,
             "provincia" => $provincia,
             "categorie" => $categorie,
-            "password" => $password
     ];
-
-    // Password: MAI in chiaro
-    $_SESSION["utente"]["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     // (opzionale) redirect
     header("Location: visualizzazione_eventi.php");
