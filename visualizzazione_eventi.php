@@ -53,6 +53,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <button type="submit">Filtra</button>
 </form>
+
+<button><a href="newsletter.php">NewsLetter</a></button>
 <br>
 
 

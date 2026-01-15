@@ -1,0 +1,18 @@
+.eventi-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.evento-card {
+    border: 2px solid #ddd;
+    border-left: 6px solid #4CAF50;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.evento-card h3 {
+    margin-top: 0;
+    color: #333;
+}

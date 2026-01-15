@@ -21,7 +21,6 @@ if (isset($_POST['voto'], $_POST['commento'])) {
     $voto = (int) $_POST['voto'];
     $commento = $_POST['commento'];
 
-    // controllo voto
     if ($voto < 1 || $voto > 10) {
         die("Voto non valido");
     }
@@ -37,7 +36,6 @@ if (isset($_POST['voto'], $_POST['commento'])) {
 
     $stmt->execute();
 
-    // redirect CORRETTO
     header("Location: commenti.php?idEvento=" . $idEvento);
     exit;
 }
