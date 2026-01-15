@@ -55,6 +55,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </form>
 
 <button><a href="newsletter.php">NewsLetter</a></button>
+<button><a href="aggiungiEvento.php">Aggiungi Evento</a></button>
+
 <br>
 
 

@@ -10,6 +10,13 @@ $stmt = $conn->query("
 ");
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$stmt1 = $conn->query("
+    SELECT nome
+    FROM provincia
+");
+$province = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Pulizia dei dati
@@ -153,114 +160,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </label>
             <select class="select select-bordered w-full" name="provincia" id="provincia">
                 <option disabled selected>Seleziona una provincia</option>
-
-                <option>Agrigento</option>
-                <option>Alessandria</option>
-                <option>Ancona</option>
-                <option>Aosta</option>
-                <option>Arezzo</option>
-                <option>Ascoli Piceno</option>
-                <option>Asti</option>
-                <option>Avellino</option>
-                <option>Bari</option>
-                <option>Barletta-Andria-Trani</option>
-                <option>Belluno</option>
-                <option>Benevento</option>
-                <option>Bergamo</option>
-                <option>Biella</option>
-                <option>Bologna</option>
-                <option>Bolzano</option>
-                <option>Brescia</option>
-                <option>Brindisi</option>
-                <option>Cagliari</option>
-                <option>Caltanissetta</option>
-                <option>Campobasso</option>
-                <option>Caserta</option>
-                <option>Catania</option>
-                <option>Catanzaro</option>
-                <option>Chieti</option>
-                <option>Como</option>
-                <option>Cosenza</option>
-                <option>Cremona</option>
-                <option>Crotone</option>
-                <option>Cuneo</option>
-                <option>Enna</option>
-                <option>Fermo</option>
-                <option>Ferrara</option>
-                <option>Firenze</option>
-                <option>Foggia</option>
-                <option>Forlì-Cesena</option>
-                <option>Frosinone</option>
-                <option>Genova</option>
-                <option>Gorizia</option>
-                <option>Grosseto</option>
-                <option>Imperia</option>
-                <option>Isernia</option>
-                <option>L'Aquila</option>
-                <option>La Spezia</option>
-                <option>Latina</option>
-                <option>Lecce</option>
-                <option>Lecco</option>
-                <option>Livorno</option>
-                <option>Lodi</option>
-                <option>Lucca</option>
-                <option>Macerata</option>
-                <option>Mantova</option>
-                <option>Massa-Carrara</option>
-                <option>Matera</option>
-                <option>Messina</option>
-                <option>Milano</option>
-                <option>Modena</option>
-                <option>Monza e Brianza</option>
-                <option>Napoli</option>
-                <option>Novara</option>
-                <option>Nuoro</option>
-                <option>Oristano</option>
-                <option>Padova</option>
-                <option>Palermo</option>
-                <option>Parma</option>
-                <option>Pavia</option>
-                <option>Perugia</option>
-                <option>Pesaro e Urbino</option>
-                <option>Pescara</option>
-                <option>Piacenza</option>
-                <option>Pisa</option>
-                <option>Pistoia</option>
-                <option>Pordenone</option>
-                <option>Potenza</option>
-                <option>Prato</option>
-                <option>Ragusa</option>
-                <option>Ravenna</option>
-                <option>Reggio Calabria</option>
-                <option>Reggio Emilia</option>
-                <option>Rieti</option>
-                <option>Rimini</option>
-                <option>Roma</option>
-                <option>Rovigo</option>
-                <option>Salerno</option>
-                <option>Sassari</option>
-                <option>Savona</option>
-                <option>Siena</option>
-                <option>Siracusa</option>
-                <option>Sondrio</option>
-                <option>Sud Sardegna</option>
-                <option>Taranto</option>
-                <option>Teramo</option>
-                <option>Terni</option>
-                <option>Torino</option>
-                <option>Trapani</option>
-                <option>Trento</option>
-                <option>Treviso</option>
-                <option>Trieste</option>
-                <option>Udine</option>
-                <option>Varese</option>
-                <option>Venezia</option>
-                <option>Verbano-Cusio-Ossola</option>
-                <option>Vercelli</option>
-                <option>Verona</option>
-                <option>Vibo Valentia</option>
-                <option>Vicenza</option>
-                <option>Viterbo</option>
+                <?php
+                foreach($province as $p){
+                    echo "<option>" . $p['nome'] . "</option>";
+                }
+                ?>
             </select>
         </div>
 
