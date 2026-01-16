@@ -14,7 +14,7 @@ if (!isset($_GET['idEvento'])) {
 }
 
 $idEvento = (int) $_GET['idEvento'];
-$nickname =$_SESSION['utente']['nickname'];
+$nickname = $_SESSION['utente']['nickname'];
 
 if (isset($_POST['voto'], $_POST['commento'])) {
 
